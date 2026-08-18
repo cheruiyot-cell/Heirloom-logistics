@@ -52,21 +52,6 @@ function debounce(func, wait = 100) {
 }
 
 /**
- * Check if element is in viewport
- * @param {HTMLElement} element - The element to check
- * @returns {boolean} - True if in viewport
- */
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-/**
  * Validate email format
  * @param {string} email - Email address to validate
  * @returns {boolean} - True if valid
@@ -97,22 +82,6 @@ function sanitizeInput(value) {
     const div = document.createElement('div');
     div.textContent = value;
     return div.innerHTML;
-}
-
-/**
- * Format phone number for display
- * @param {string} phone - Raw phone number
- * @returns {string} - Formatted phone number
- */
-function formatPhoneNumber(phone) {
-    const cleaned = phone.replace(/\D/g, '');
-    if (cleaned.length === 10) {
-        return cleaned.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3');
-    }
-    if (cleaned.length === 12) {
-        return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/, '+$1 $2 $3 $4');
-    }
-    return phone;
 }
 
 /* ============================================
@@ -219,7 +188,7 @@ function smoothScrollToTarget(event) {
 }
 
 /* ============================================
-   Form Validation & Submission
+   Form Validation & Submission (UPDATED)
    ============================================ */
 
 /**
@@ -229,18 +198,17 @@ function smoothScrollToTarget(event) {
  */
 function showFieldError(field, message) {
     field.classList.add('error');
-    const errorElement = field.nextElementSibling;
+    // Find the error message container (next sibling or specific selector)
+    let errorElement = field.nextElementSibling;
     
-    if (errorElement && errorElement.classList.contains('error-message')) {
+    // If the immediate sibling isn't an error message, search for it within the parent
+    if (!errorElement || !errorElement.classList.contains('error-message')) {
+        errorElement = field.parentElement.querySelector('.error-message');
+    }
+
+    if (errorElement) {
         errorElement.textContent = message;
         errorElement.style.display = 'block';
-    } else {
-        // Create error element if it doesn't exist
-        const newError = document.createElement('span');
-        newError.classList.add('error-message');
-        newError.textContent = message;
-        newError.style.display = 'block';
-        field.insertAdjacentElement('afterend', newError);
     }
 }
 
@@ -256,8 +224,11 @@ function validateField(field) {
     
     // Reset error state
     field.classList.remove('error');
-    const errorElement = field.nextElementSibling;
-    if (errorElement && errorElement.classList.contains('error-message')) {
+    let errorElement = field.nextElementSibling;
+    if (!errorElement || !errorElement.classList.contains('error-message')) {
+        errorElement = field.parentElement.querySelector('.error-message');
+    }
+    if (errorElement) {
         errorElement.style.display = 'none';
     }
     
@@ -380,7 +351,12 @@ async function handleFormSubmission(event) {
         const formData = new FormData(form);
         const sanitizedData = new FormData();
         for (let [key, value] of formData.entries()) {
-            sanitizedData.append(key, sanitizeInput(value));
+            // Skip hidden fields that don't need sanitization
+            if (key.startsWith('_')) {
+                sanitizedData.append(key, value);
+            } else {
+                sanitizedData.append(key, sanitizeInput(value));
+            }
         }
         
         const response = await fetch(form.action, {
@@ -397,7 +373,9 @@ async function handleFormSubmission(event) {
             // Redirect to thank you page
             window.location.href = 'thank-you.html';
         } else {
-            throw new Error('Form submission failed');
+            // Parse error response from Formspree
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Form submission failed');
         }
     } catch (error) {
         log('Form submission error:', error);
@@ -441,8 +419,11 @@ function handleFieldInput(event) {
     const field = event.currentTarget;
     if (field.classList.contains('error')) {
         field.classList.remove('error');
-        const errorElement = field.nextElementSibling;
-        if (errorElement && errorElement.classList.contains('error-message')) {
+        let errorElement = field.nextElementSibling;
+        if (!errorElement || !errorElement.classList.contains('error-message')) {
+            errorElement = field.parentElement.querySelector('.error-message');
+        }
+        if (errorElement) {
             errorElement.style.display = 'none';
         }
     }
@@ -521,7 +502,7 @@ function initFAQAccordion() {
  */
 function handleStickyCTA() {
     if (!DOM.stickyCTA || !DOM.footer || window.innerWidth > 768) {
-        DOM.body.style.paddingBottom = '0';
+        if (DOM.body) DOM.body.style.paddingBottom = '0';
         return;
     }
     
@@ -749,7 +730,6 @@ if (DEBUG) {
         validateForm,
         isValidEmail,
         isValidPhone,
-        sanitizeInput,
-        formatPhoneNumber
+        sanitizeInput
     };
 }

@@ -1,52 +1,252 @@
-<!-- Only showing the form section that changed -->
-<section class="email-form-section">
-    <div class="container">
-        <div class="form-container">
-            <h2>Request a Quote by Email</h2>
-            <p>Prefer email? Leave your details below and we'll get back to you with a preliminary estimate based on your inventory.</p>
-            
-            <form id="quote-form" action="https://formspree.io/f/mjybylyr" method="POST">
-                <!-- Honeypot field to prevent spam -->
-                <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
-                
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="e.g., John Kamau">
-                    <span class="error-message" style="display: none;"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Your Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="e.g., 07XX XXX XXX">
-                    <span class="error-message" style="display: none;"></span>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="moving-from">Moving From *</label>
-                        <input type="text" id="moving-from" name="moving_from" required placeholder="e.g., Kilimani">
-                        <span class="error-message" style="display: none;"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="moving-to">Moving To *</label>
-                        <input type="text" id="moving-to" name="moving_to" required placeholder="e.g., Runda">
-                        <span class="error-message" style="display: none;"></span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="items">Brief Description of Items</label>
-                    <textarea id="items" name="items" rows="4" placeholder="e.g., 2 beds, 1 fridge, 1 couch, 10 boxes"></textarea>
-                </div>
-                
-                <input type="hidden" name="_subject" value="New Quote Request from Website">
-                <input type="hidden" name="_replyto" value="%email">
-                
-                <button type="submit" class="btn btn-primary btn-block">Request My Free Quote</button>
-                
-                <p class="form-privacy">We respect your privacy. No spam, ever. We only use this to prepare your quote.</p>
-            </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Free Moving Quote | Heirloom Logistics Nairobi</title>
+    <meta name="description" content="Get a fixed, no-obligation moving quote in 30 minutes. WhatsApp us a video of your items or call 0702555093. Heirloom Logistics serves Nairobi and all 47 counties in Kenya.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Utility Bar -->
+    <div class="utility-bar">
+        <div class="container">
+            <p class="utility-left">Serving Nairobi & All Major Towns in Kenya</p>
+            <p class="utility-right">
+                <a href="tel:0702555093">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    0702555093
+                </a>
+                <span class="divider">|</span>
+                <a href="mailto:harrisoncheruiyot04@gmail.com">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Email Us
+                </a>
+            </p>
         </div>
     </div>
-</section>
+
+    <!-- Header -->
+    <header class="site-header" id="site-header" role="banner">
+        <div class="container nav-container">
+            <a href="/" class="logo" aria-label="Heirloom Logistics Home">
+                <span class="logo-main">Heirloom</span>
+                <span class="logo-sub">Logistics</span>
+            </a>
+            
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="heirloom-standard.html">The Heirloom Standard</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-cta active" aria-current="page">Get a Quote</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Let's Get You Moving.</h1>
+                <p class="contact-subheadline">Tell us where you are moving from and where you are going. We will handle the heavy lifting—literally. Get a fixed, free, no-obligation quote within 30 minutes.</p>
+            </div>
+        </section>
+
+        <!-- Contact Options -->
+        <section class="contact-options-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- WhatsApp Option -->
+                    <div class="contact-card primary">
+                        <span class="contact-label">FASTEST OPTION</span>
+                        <h2>Chat with the Owner on WhatsApp</h2>
+                        <p>Snap a quick video of your current house or apartment, or just type a list of your big items. Send it to us on WhatsApp and we'll reply with a price and available dates immediately.</p>
+                        <a href="https://wa.me/254702555093?text=Hello%20Heirloom%20Logistics%2C%20I%20need%20a%20moving%20quote." class="btn btn-whatsapp" target="_blank" rel="noopener">Chat on WhatsApp Now →</a>
+                        <p class="micro-copy">Usually replies within 5-10 minutes during business hours.</p>
+                    </div>
+
+                    <!-- Phone Option -->
+                    <div class="contact-card secondary">
+                        <span class="contact-label">PREFER TO TALK?</span>
+                        <h2>Call Us Directly</h2>
+                        <p>If you have a complex move or just prefer to speak to a human, give us a call. We're happy to walk you through the process and answer any questions.</p>
+                        <a href="tel:0702555093" class="btn btn-outline-dark">Call 0702555093</a>
+                        <p class="micro-copy">Mon-Sat: 7:00 AM – 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Email Form -->
+        <section class="email-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h2>Request a Quote by Email</h2>
+                    <p>Prefer email? Leave your details below and we'll get back to you with a preliminary estimate based on your inventory.</p>
+                    
+                    <form id="quote-form" action="https://formspree.io/f/mjybylyr" method="POST">
+                        <!-- Honeypot field to prevent spam -->
+                        <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
+                        
+                        <div class="form-group">
+                            <label for="name">Your Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g., John Kamau">
+                            <span class="error-message" style="display: none;"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            <span class="error-message" style="display: none;"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Your Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="e.g., 07XX XXX XXX">
+                            <span class="error-message" style="display: none;"></span>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="moving-from">Moving From *</label>
+                                <input type="text" id="moving-from" name="moving_from" required placeholder="e.g., Kilimani">
+                                <span class="error-message" style="display: none;"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="moving-to">Moving To *</label>
+                                <input type="text" id="moving-to" name="moving_to" required placeholder="e.g., Runda">
+                                <span class="error-message" style="display: none;"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="items">Brief Description of Items</label>
+                            <textarea id="items" name="items" rows="4" placeholder="e.g., 2 beds, 1 fridge, 1 couch, 10 boxes"></textarea>
+                        </div>
+                        
+                        <!-- Formspree Configuration -->
+                        <input type="hidden" name="_subject" value="New Quote Request from Website">
+                        <!-- Tells Formspree to use the value from the 'email' input field for replies -->
+                        <input type="hidden" name="_replyto" value="#email">
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Request My Free Quote</button>
+                        
+                        <p class="form-privacy">We respect your privacy. No spam, ever. We only use this to prepare your quote.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Happens Next -->
+        <section class="what-next">
+            <div class="container">
+                <h2>What Happens After You Reach Out?</h2>
+                <div class="next-steps">
+                    <div class="next-step">
+                        <div class="step-icon" aria-hidden="true">📋</div>
+                        <h3>1. The Review</h3>
+                        <p>We receive your message, video, or form. We review the volume of items and the distance.</p>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-icon" aria-hidden="true">💰</div>
+                        <h3>2. The Quote</h3>
+                        <p>We send you a fixed price via WhatsApp or Email. This includes truck, fuel, and crew. No hidden charges.</p>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-icon" aria-hidden="true">✅</div>
+                        <h3>3. The Booking</h3>
+                        <p>You approve the quote, we lock in your date, and we show up on time with the packing materials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Support -->
+        <section class="emergency-support">
+            <div class="container">
+                <h2>Need to Move Today or Tomorrow?</h2>
+                <p>We understand that sometimes plans change at the last minute. If you need an emergency moving slot, please do not use the email form. Call or WhatsApp us directly.</p>
+                <a href="tel:0702555093" class="btn btn-primary">Call 0702555093 for Emergency Availability</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Heirloom Logistics</h3>
+                <p>Moving You Forward.</p>
+                <p>Proudly serving Nairobi, Kiambu, Machakos, and all 47 Counties.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#local-moving">House Moving</a></li>
+                    <li><a href="services.html#long-distance">Office Relocation</a></li>
+                    <li><a href="services.html#single-item">Parcel Delivery</a></li>
+                    <li><a href="services.html#storage">Storage Solutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li><a href="service-areas.html#nairobi">Nairobi</a></li>
+                    <li><a href="service-areas.html#mombasa">Mombasa</a></li>
+                    <li><a href="service-areas.html#kisumu">Kisumu</a></li>
+                    <li><a href="service-areas.html#nakuru">Nakuru</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0702555093">0702555093</a></li>
+                    <li><a href="mailto:harrisoncheruiyot04@gmail.com">harrisoncheruiyot04@gmail.com</a></li>
+                    <li>P.O. Box 1234, Nairobi</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2026</span> Heirloom Logistics. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-mobile-cta" aria-label="Quick Contact">
+        <a href="tel:0702555093" class="sticky-call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Call
+        </a>
+        <a href="https://wa.me/254702555093?text=Hello%20Heirloom%20Logistics%2C%20I%20need%20a%20moving%20quote." class="sticky-whatsapp" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            WhatsApp
+        </a>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
