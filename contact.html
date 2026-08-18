@@ -1,0 +1,52 @@
+<!-- Only showing the form section that changed -->
+<section class="email-form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2>Request a Quote by Email</h2>
+            <p>Prefer email? Leave your details below and we'll get back to you with a preliminary estimate based on your inventory.</p>
+            
+            <form id="quote-form" action="https://formspree.io/f/mjybylyr" method="POST">
+                <!-- Honeypot field to prevent spam -->
+                <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
+                
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="e.g., John Kamau">
+                    <span class="error-message" style="display: none;"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Your Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="e.g., 07XX XXX XXX">
+                    <span class="error-message" style="display: none;"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="moving-from">Moving From *</label>
+                        <input type="text" id="moving-from" name="moving_from" required placeholder="e.g., Kilimani">
+                        <span class="error-message" style="display: none;"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="moving-to">Moving To *</label>
+                        <input type="text" id="moving-to" name="moving_to" required placeholder="e.g., Runda">
+                        <span class="error-message" style="display: none;"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="items">Brief Description of Items</label>
+                    <textarea id="items" name="items" rows="4" placeholder="e.g., 2 beds, 1 fridge, 1 couch, 10 boxes"></textarea>
+                </div>
+                
+                <input type="hidden" name="_subject" value="New Quote Request from Website">
+                <input type="hidden" name="_replyto" value="%email">
+                
+                <button type="submit" class="btn btn-primary btn-block">Request My Free Quote</button>
+                
+                <p class="form-privacy">We respect your privacy. No spam, ever. We only use this to prepare your quote.</p>
+            </form>
+        </div>
+    </div>
+</section>
