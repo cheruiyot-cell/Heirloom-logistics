@@ -1,0 +1,382 @@
+/* ============================================
+   Heirloom Logistics - Packing Guide Styles
+   ============================================ */
+
+/* Guide Hero */
+.guide-hero {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.guide-hero h1 {
+    color: var(--color-white);
+}
+
+.guide-subheadline {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.guide-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Guide Content */
+.guide-content {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-ivory);
+}
+
+.guide-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.guide-section {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.guide-section h2 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-charcoal);
+    font-size: 24px;
+}
+
+.guide-note {
+    background-color: var(--color-ivory);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-left: 4px solid var(--color-gold);
+    margin: var(--spacing-md) 0;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.guide-tip {
+    background-color: var(--color-soft-beige);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin: var(--spacing-md) 0;
+    font-size: 14px;
+}
+
+/* Checklist */
+.checklist {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.checklist-category {
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md);
+}
+
+.checklist-category h3 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-charcoal);
+}
+
+.checklist-category ul {
+    list-style: none;
+    margin-bottom: var(--spacing-sm);
+}
+
+.checklist-category li {
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 15px;
+}
+
+.checklist-category input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--color-gold);
+    flex-shrink: 0;
+}
+
+.checklist-category label {
+    cursor: pointer;
+}
+
+.checklist-tip {
+    font-size: 13px;
+    color: var(--color-slate);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px dashed var(--color-light-gray);
+}
+
+/* Strategy Grid */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.strategy-card {
+    background-color: var(--color-ivory);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+}
+
+.strategy-card h3 {
+    font-size: 16px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.strategy-card ul {
+    list-style: none;
+}
+
+.strategy-card ul li {
+    margin-bottom: var(--spacing-xs);
+    font-size: 14px;
+    padding-left: var(--spacing-sm);
+    position: relative;
+}
+
+.strategy-card ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+}
+
+/* Warning List */
+.warning-list {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.warning-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: #fff8f8;
+    border: 1px solid #f5c6cb;
+    border-radius: var(--radius-sm);
+    align-items: flex-start;
+}
+
+.warning-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.warning-item h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    margin-bottom: 2px;
+    font-family: var(--font-body);
+}
+
+.warning-item p {
+    font-size: 13px;
+    color: var(--color-slate);
+    margin-bottom: 0;
+}
+
+/* Labeling Example */
+.labeling-example {
+    margin-top: var(--spacing-md);
+}
+
+.labeling-example h3 {
+    font-size: 16px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.labeling-example h4 {
+    font-size: 15px;
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+    font-family: var(--font-body);
+}
+
+.label-example-box {
+    background-color: var(--color-ivory);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.label-example-box p {
+    margin-bottom: var(--spacing-xs);
+    font-size: 14px;
+}
+
+.label-example-print {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-charcoal);
+    padding: var(--spacing-md);
+    max-width: 300px;
+    text-align: center;
+    margin: var(--spacing-md) 0;
+    font-weight: 500;
+}
+
+.label-example-print p {
+    margin-bottom: var(--spacing-xs);
+    font-size: 18px;
+    color: var(--color-charcoal);
+}
+
+/* Tips List */
+.tips-list {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.tip-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-ivory);
+    border-radius: var(--radius-sm);
+    align-items: flex-start;
+}
+
+.tip-number {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.tip-item h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    margin-bottom: 2px;
+    font-family: var(--font-body);
+}
+
+.tip-item p {
+    font-size: 13px;
+    color: var(--color-slate);
+    margin-bottom: 0;
+}
+
+/* Promise Section */
+.guide-promise {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+    text-align: center;
+}
+
+.guide-promise h2 {
+    color: var(--color-white);
+}
+
+.guide-promise p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+}
+
+.guide-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+/* Print Styles */
+@media print {
+    .utility-bar,
+    .site-header,
+    .site-footer,
+    .sticky-mobile-cta,
+    .guide-actions,
+    .guide-cta,
+    .skip-link {
+        display: none !important;
+    }
+    
+    .guide-hero {
+        background-color: var(--color-white);
+        color: var(--color-charcoal);
+        padding: var(--spacing-md) 0;
+    }
+    
+    .guide-hero h1 {
+        color: var(--color-charcoal);
+        font-size: 28px;
+    }
+    
+    .guide-subheadline {
+        color: var(--color-slate);
+    }
+    
+    .guide-content {
+        padding: 0;
+        background-color: var(--color-white);
+    }
+    
+    .guide-section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+    
+    .guide-promise {
+        background-color: #f5f5f5;
+        color: var(--color-charcoal);
+    }
+    
+    .guide-promise h2 {
+        color: var(--color-charcoal);
+    }
+    
+    .guide-promise p {
+        color: var(--color-slate);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .strategy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guide-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .guide-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .guide-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .guide-section {
+        padding: var(--spacing-md);
+    }
+}
