@@ -431,7 +431,7 @@ ul {
 /* Homepage Hero with Image */
 .hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
-                      url('https://images.unsplash.com/photo-1581578731117-1d21825f0f4c?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/CsT8cNrL/1787120592911.png');
     background-size: cover;
     background-position: center;
     min-height: 80vh;
@@ -474,7 +474,7 @@ ul {
 /* Interior Page Heroes with Images */
 .services-hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                      url('https://images.unsplash.com/photo-1503708928676-1cb796a0891e?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/7f5tkqP/1787120444595.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
@@ -484,7 +484,7 @@ ul {
 
 .about-hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                      url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/fYKRkNc0/1787120310063.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
@@ -494,7 +494,7 @@ ul {
 
 .standard-hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                      url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/xtjnfNxm/1787120191426.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
@@ -504,7 +504,7 @@ ul {
 
 .faq-hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/7tRZV2bQ/1787118920731.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
@@ -514,7 +514,7 @@ ul {
 
 .contact-hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                      url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/FqjMcmrg/1787119044819.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
@@ -524,7 +524,7 @@ ul {
 
 .areas-hero {
     background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                      url('https://images.unsplash.com/photo-1565527831044-5d08033016da?w=1600&h=900&fit=crop&auto=format');
+                      url('https://i.ibb.co/fzxBB6WH/1787119976590.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
@@ -704,7 +704,7 @@ ul {
     direction: ltr;
 }
 
-/* Service Images with Unsplash */
+/* Service Images with ImgBB */
 .service-image {
     background-size: cover;
     background-position: center;
@@ -840,9 +840,9 @@ ul {
     align-items: center;
 }
 
-/* Founder Image with Unsplash */
+/* Founder Image with ImgBB */
 .founder-image {
-    background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop&auto=format');
+    background-image: url('https://i.ibb.co/zVbYs9sN/1787118576389.png');
     background-size: cover;
     background-position: center;
     border-radius: var(--radius-md);
@@ -1330,7 +1330,7 @@ ul {
 }
 
 .story-image-placeholder {
-    background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&auto=format');
+    background-image: url('https://i.ibb.co/nqSd5J7c/1787118768994.png');
     background-size: cover;
     background-position: center;
     border-radius: var(--radius-lg);
@@ -1428,9 +1428,9 @@ ul {
     box-shadow: var(--shadow-md);
 }
 
-/* Team Photo with Unsplash */
+/* Team Photo with ImgBB */
 .team-photo {
-    background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format');
+    background-image: url('https://i.ibb.co/ds4R7M5C/1787120096632.png');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
