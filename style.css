@@ -425,10 +425,13 @@ ul {
 }
 
 /* ============================================
-   Hero Sections (General)
+   Hero Sections
    ============================================ */
+
+/* Homepage Hero with Image */
 .hero {
-    background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('../images/hero-bg.jpg');
+    background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
+                      url('https://images.unsplash.com/photo-1581578731117-1d21825f0f4c?w=1600&h=900&fit=crop&auto=format');
     background-size: cover;
     background-position: center;
     min-height: 80vh;
@@ -468,38 +471,65 @@ ul {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Page Hero Sections (Interior Pages) */
-.services-hero,
-.about-hero,
-.standard-hero,
-.faq-hero,
-.areas-hero,
-.contact-hero {
-    background-color: var(--color-charcoal);
+/* Interior Page Heroes with Images */
+.services-hero {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                      url('https://images.unsplash.com/photo-1503708928676-1cb796a0891e?w=1600&h=900&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
     color: var(--color-white);
     padding: var(--spacing-xl) 0;
     text-align: center;
 }
 
-.services-hero h1,
-.about-hero h1,
-.standard-hero h1,
-.faq-hero h1,
-.areas-hero h1,
-.contact-hero h1 {
+.about-hero {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                      url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&h=900&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
     color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
 }
 
-.services-subheadline,
-.about-subheadline,
-.standard-subheadline,
-.faq-subheadline,
-.areas-subheadline,
-.contact-subheadline {
-    max-width: 700px;
-    margin: 0 auto var(--spacing-lg);
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.9);
+.standard-hero {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                      url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&h=900&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.faq-hero {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.contact-hero {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                      url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&h=900&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.areas-hero {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                      url('https://images.unsplash.com/photo-1565527831044-5d08033016da?w=1600&h=900&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
 }
 
 /* ============================================
@@ -674,14 +704,15 @@ ul {
     direction: ltr;
 }
 
+/* Service Images with Unsplash */
 .service-image {
-    background-color: var(--color-soft-beige);
-    border-radius: var(--radius-md);
+    background-size: cover;
+    background-position: center;
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 80px;
+    border-radius: var(--radius-md);
 }
 
 .service-content {
@@ -809,14 +840,16 @@ ul {
     align-items: center;
 }
 
+/* Founder Image with Unsplash */
 .founder-image {
-    background-color: var(--color-soft-beige);
+    background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
     border-radius: var(--radius-md);
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 100px;
 }
 
 .founder-content h2 {
@@ -1297,13 +1330,14 @@ ul {
 }
 
 .story-image-placeholder {
-    background-color: var(--color-soft-beige);
+    background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
     border-radius: var(--radius-lg);
     min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 120px;
 }
 
 .image-caption {
@@ -1394,8 +1428,11 @@ ul {
     box-shadow: var(--shadow-md);
 }
 
+/* Team Photo with Unsplash */
 .team-photo {
-    background-color: var(--color-soft-beige);
+    background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format');
+    background-size: cover;
+    background-position: center;
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -1403,7 +1440,6 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
 }
 
 .team-card h3 {
