@@ -533,6 +533,49 @@ ul {
 }
 
 /* ============================================
+   Hero Text Visibility Fix (Text Shadow)
+   ============================================ */
+.hero h1,
+.hero-subheadline,
+.services-hero h1,
+.services-hero p,
+.about-hero h1,
+.about-hero p,
+.standard-hero h1,
+.standard-hero p,
+.faq-hero h1,
+.faq-hero p,
+.contact-hero h1,
+.contact-hero p,
+.areas-hero h1,
+.areas-hero p,
+.hero-cta .btn,
+.hero-trust {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Stronger shadow for subheadlines and paragraphs */
+.hero-subheadline,
+.services-hero p,
+.about-hero p,
+.standard-hero p,
+.faq-hero p,
+.contact-hero p,
+.areas-hero p {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Ensure buttons remain crisp */
+.hero-cta .btn {
+    text-shadow: none;
+}
+
+/* Hero trust text - more subtle but still readable */
+.hero-trust {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
    Trust Bar
    ============================================ */
 .trust-bar {
