@@ -1,5 +1,6 @@
 /* ============================================
    Heirloom Logistics - Packing Guide Styles
+   Version 2.0 - Audit fixes applied
    ============================================ */
 
 /* Guide Hero */
@@ -51,6 +52,36 @@
     margin-bottom: var(--spacing-md);
     color: var(--color-charcoal);
     font-size: 24px;
+}
+
+.guide-section h3 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.guide-section h4 {
+    font-size: 15px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.guide-section p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.guide-section ul {
+    list-style: none;
+}
+
+.guide-section > ul li,
+.labeling-example > ul li {
+    padding-left: var(--spacing-sm);
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+    font-size: 15px;
 }
 
 .guide-note {
@@ -315,42 +346,47 @@
     .skip-link {
         display: none !important;
     }
-    
+
+    body {
+        padding-bottom: 0 !important;
+        background: #fff;
+    }
+
     .guide-hero {
         background-color: var(--color-white);
         color: var(--color-charcoal);
         padding: var(--spacing-md) 0;
     }
-    
+
     .guide-hero h1 {
         color: var(--color-charcoal);
         font-size: 28px;
     }
-    
+
     .guide-subheadline {
         color: var(--color-slate);
     }
-    
+
     .guide-content {
         padding: 0;
         background-color: var(--color-white);
     }
-    
+
     .guide-section {
         box-shadow: none;
         border: 1px solid #ddd;
         page-break-inside: avoid;
     }
-    
+
     .guide-promise {
         background-color: #f5f5f5;
         color: var(--color-charcoal);
     }
-    
+
     .guide-promise h2 {
         color: var(--color-charcoal);
     }
-    
+
     .guide-promise p {
         color: var(--color-slate);
     }
@@ -361,21 +397,21 @@
     .strategy-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .guide-actions {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .guide-cta {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .guide-container {
         padding: 0 var(--spacing-sm);
     }
-    
+
     .guide-section {
         padding: var(--spacing-md);
     }
