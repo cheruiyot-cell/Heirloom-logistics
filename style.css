@@ -1,6 +1,6 @@
 /* ============================================
    Heirloom Logistics - Production Stylesheet
-   Version 3.1 - Unsplash images + audit fixes
+   Version 3.2 - Hero text visibility fixes
    ============================================ */
 
 :root {
@@ -10,6 +10,7 @@
     --color-white: #FFFFFF;
     --color-gold: #B08D57;
     --color-gold-dark: #8A6B3D;
+    --color-gold-light: #D4B784;
     --color-slate: #4A4A4A;
     --color-light-gray: #E8E6E1;
     --color-soft-beige: #EFECE6;
@@ -49,22 +50,28 @@
     --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
     --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
 
+    /* Overlay */
+    --hero-overlay: rgba(26, 26, 26, 0.78);
+    --hero-overlay-light: rgba(26, 26, 26, 0.7);
+    --hero-text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75),
+                        0 1px 3px rgba(0, 0, 0, 0.6);
+
     /* Unsplash Image URLs (centralised) */
-    --img-hero-home: url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-home:     url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1920&q=80');
     --img-hero-services: url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-about: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-about:    url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80');
     --img-hero-standard: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-faq: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-contact: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-areas: url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1920&q=80');
-    --img-founder: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80');
-    --img-story: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80');
-    --img-team-1: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80');
-    --img-team-2: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80');
-    --img-team-3: url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80');
+    --img-hero-faq:      url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-contact:  url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-areas:    url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1920&q=80');
+    --img-founder:       url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80');
+    --img-story:         url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80');
+    --img-team-1:        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80');
+    --img-team-2:        url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80');
+    --img-team-3:        url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80');
     --img-service-local: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80');
-    --img-service-long: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=80');
-    --img-service-parcel: url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1200&q=80');
+    --img-service-long:  url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=80');
+    --img-service-parcel:url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1200&q=80');
 }
 
 /* ============================================
@@ -110,6 +117,7 @@ ul { list-style: none; }
     transition: top var(--transition-medium);
 }
 .skip-link:focus { top: 0; color: var(--color-white); }
+
 .sr-only {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
@@ -265,44 +273,112 @@ ul { list-style: none; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* ============================================
-   Hero Sections
+   Hero Sections — Dark Overlays
+   ------------------------------------------------------------
+   IMPORTANT: These heroes sit on a dark overlay. All text
+   inside them MUST be explicitly set to white (or a light
+   gold for labels), because the global h1–h6 rule sets
+   color: charcoal and would otherwise override inheritance.
    ============================================ */
+
+/* --- Homepage hero --- */
 .hero {
-    background-image: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.7)), var(--img-hero-home);
-    background-size: cover; background-position: center;
-    min-height: 80vh; display: flex; align-items: center;
-    position: relative; color: var(--color-white);
+    background-color: var(--color-charcoal); /* fallback if image fails */
+    background-image:
+        linear-gradient(var(--hero-overlay-light), var(--hero-overlay-light)),
+        var(--img-hero-home);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--color-white);
 }
 .hero-content { position: relative; z-index: 1; max-width: 800px; }
-.hero h1 { color: var(--color-white); margin-bottom: var(--spacing-md); }
+.hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+}
 .hero-subheadline {
     font-size: 18px; line-height: 1.7;
-    margin-bottom: var(--spacing-lg); color: rgba(255,255,255,0.9);
+    margin-bottom: var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.92);
 }
 .hero-cta { display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-bottom: var(--spacing-lg); }
-.hero-trust { font-size: 14px; color: rgba(255,255,255,0.85); }
+.hero-trust { font-size: 14px; color: rgba(255, 255, 255, 0.88); }
 
-.services-hero, .about-hero, .standard-hero, .faq-hero, .contact-hero, .areas-hero {
-    background-size: cover; background-position: center;
-    color: var(--color-white); padding: var(--spacing-xl) 0; text-align: center;
+/* --- Sub-page heroes --- */
+.services-hero,
+.about-hero,
+.standard-hero,
+.faq-hero,
+.contact-hero,
+.areas-hero {
+    background-color: var(--color-charcoal); /* fallback */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
 }
-.services-hero { background-image: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.75)), var(--img-hero-services); }
-.about-hero { background-image: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.75)), var(--img-hero-about); }
-.standard-hero { background-image: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.75)), var(--img-hero-standard); }
-.faq-hero { background-image: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.75)), var(--img-hero-faq); }
-.contact-hero { background-image: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.75)), var(--img-hero-contact); }
-.areas-hero { background-image: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.75)), var(--img-hero-areas); }
 
+.services-hero { background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), var(--img-hero-services); }
+.about-hero    { background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), var(--img-hero-about); }
+.standard-hero { background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), var(--img-hero-standard); }
+.faq-hero      { background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), var(--img-hero-faq); }
+.contact-hero  { background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), var(--img-hero-contact); }
+.areas-hero    { background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), var(--img-hero-areas); }
+
+/* --- Force white text inside every dark hero --- */
+.hero h1,
+.services-hero h1,
+.about-hero h1,
+.standard-hero h1,
+.faq-hero h1,
+.contact-hero h1,
+.areas-hero h1 {
+    color: var(--color-white);
+}
+
+.hero p,
+.services-hero p,
+.about-hero p,
+.standard-hero p,
+.faq-hero p,
+.contact-hero p,
+.areas-hero p {
+    color: var(--color-white);
+}
+
+/* --- Text shadow for legibility over any photo --- */
+.hero h1,
+.hero-subheadline,
+.hero-trust,
 .services-hero h1, .services-hero p,
-.about-hero h1, .about-hero p,
+.about-hero h1,    .about-hero p,
 .standard-hero h1, .standard-hero p,
-.faq-hero h1, .faq-hero p,
-.contact-hero h1, .contact-hero p,
-.areas-hero h1, .areas-hero p,
-.hero h1, .hero-subheadline, .hero-trust {
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+.faq-hero h1,      .faq-hero p,
+.contact-hero h1,  .contact-hero p,
+.areas-hero h1,    .areas-hero p {
+    text-shadow: var(--hero-text-shadow);
 }
 .hero-cta .btn { text-shadow: none; }
+
+/* --- Section labels inside dark heroes need lighter gold --- */
+.hero .section-label,
+.services-hero .section-label,
+.about-hero .section-label,
+.standard-hero .section-label,
+.faq-hero .section-label,
+.contact-hero .section-label,
+.areas-hero .section-label,
+.guide-hero .section-label {
+    color: var(--color-gold-light);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
 
 /* ============================================
    Trust Bar
@@ -422,7 +498,9 @@ ul { list-style: none; }
     padding: var(--spacing-xxl) 0; background-color: var(--color-charcoal);
     color: var(--color-white); text-align: center;
 }
-.guarantee-section h2, .standard-guarantee h2 { color: var(--color-white); margin-bottom: var(--spacing-sm); }
+.guarantee-section h2, .standard-guarantee h2 {
+    color: var(--color-white); margin-bottom: var(--spacing-sm);
+}
 .guarantee-sub { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto var(--spacing-xl); }
 .guarantee-grid, .guarantee-items {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
