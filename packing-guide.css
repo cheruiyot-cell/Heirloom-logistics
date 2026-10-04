@@ -1,6 +1,6 @@
 /* ============================================
    Heirloom Logistics - Packing Guide Styles
-   Version 2.0
+   Version 3.0
    ============================================ */
 
 .guide-hero {
@@ -74,7 +74,7 @@
 }
 .checklist-category input[type="checkbox"] {
     width: 18px; height: 18px; cursor: pointer;
-    accent-color: var(--color-gold); flex-shrink: 0;
+    accent-color: var(--color-gold-fill); flex-shrink: 0;
 }
 .checklist-category label { cursor: pointer; }
 .checklist-tip {
@@ -149,7 +149,8 @@
     align-items: flex-start;
 }
 .tip-number {
-    background-color: var(--color-gold); color: var(--color-white);
+    background-color: var(--color-gold-fill);
+    color: var(--color-white);
     width: 28px; height: 28px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-weight: 600; font-size: 14px; flex-shrink: 0;

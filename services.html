@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://heirloomlogistics.co.ke/services.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image:alt" content="Heirloom Logistics moving crew loading a truck in Nairobi">
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">
@@ -42,11 +43,21 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://heirloomlogistics.co.ke/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://heirloomlogistics.co.ke/services.html" }
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -58,7 +69,7 @@
             <p class="utility-right">
                 <a href="tel:+254702555093">📞 0702 555 093</a>
                 <span class="divider">|</span>
-                <a href="mailto:harrisoncheruiyot04@gmail.com">✉️ Email Us</a>
+                <a href="mailto:hello@heirloomlogistics.co.ke">✉️ Email Us</a>
             </p>
         </div>
     </div>
@@ -87,6 +98,14 @@
 
     <main id="main-content" tabindex="-1">
         <section class="services-hero">
+            <img class="hero-media"
+                 src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1280&q=75"
+                 srcset="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=768&q=70 768w,
+                         https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1280&q=75 1280w,
+                         https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80 1920w"
+                 sizes="100vw"
+                 width="1920" height="1080"
+                 fetchpriority="high" decoding="async" alt="">
             <div class="container">
                 <h1>Moving Services Built Around Your Life</h1>
                 <p class="services-subheadline">From a single item across town to a full household across the country—we handle the logistics so you can focus on what matters.</p>
@@ -96,6 +115,7 @@
 
         <section class="service-selection">
             <div class="container">
+                <h2 class="sr-only">Our Moving Services</h2>
                 <div class="selection-grid">
                     <a href="#local-moving" class="selection-card">
                         <div class="selection-icon" aria-hidden="true">🏠</div>
@@ -299,9 +319,9 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Feature</th>
-                                <th>Heirloom Logistics</th>
-                                <th>Typical Mover</th>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Heirloom Logistics</th>
+                                <th scope="col">Typical Mover</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -346,6 +366,15 @@
                 </ul>
             </div>
             <div class="footer-col">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li><a href="service-areas.html#nairobi">Nairobi</a></li>
+                    <li><a href="service-areas.html#mombasa">Mombasa</a></li>
+                    <li><a href="service-areas.html#kisumu">Kisumu</a></li>
+                    <li><a href="service-areas.html#nakuru">Nakuru</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="heirloom-standard.html">The Heirloom Standard</a></li>
@@ -358,7 +387,7 @@
                 <h4>Contact</h4>
                 <ul>
                     <li><a href="tel:+254702555093">0702 555 093</a></li>
-                    <li><a href="mailto:harrisoncheruiyot04@gmail.com">harrisoncheruiyot04@gmail.com</a></li>
+                    <li><a href="mailto:hello@heirloomlogistics.co.ke">hello@heirloomlogistics.co.ke</a></li>
                     <li>P.O. Box 1234, Nairobi</li>
                 </ul>
             </div>

@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://heirloomlogistics.co.ke/faq.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image:alt" content="Frequently asked questions about moving with Heirloom Logistics">
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">
@@ -33,11 +34,21 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://heirloomlogistics.co.ke/" },
+        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://heirloomlogistics.co.ke/faq.html" }
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,7 +60,7 @@
             <p class="utility-right">
                 <a href="tel:+254702555093">📞 0702 555 093</a>
                 <span class="divider">|</span>
-                <a href="mailto:harrisoncheruiyot04@gmail.com">✉️ Email Us</a>
+                <a href="mailto:hello@heirloomlogistics.co.ke">✉️ Email Us</a>
             </p>
         </div>
     </div>
@@ -78,6 +89,14 @@
 
     <main id="main-content" tabindex="-1">
         <section class="faq-hero">
+            <img class="hero-media"
+                 src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1280&q=75"
+                 srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=768&q=70 768w,
+                         https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1280&q=75 1280w,
+                         https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80 1920w"
+                 sizes="100vw"
+                 width="1920" height="1080"
+                 fetchpriority="high" decoding="async" alt="">
             <div class="container">
                 <h1>Frequently Asked Questions</h1>
                 <p class="faq-subheadline">Everything you need to know about moving with Heirloom Logistics.</p>
@@ -103,11 +122,11 @@
                 <div class="faq-section" id="pricing">
                     <h2>💰 Pricing &amp; Quotes</h2>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-pricing-1">
+                        <button class="faq-question" id="faq-pricing-1-btn" aria-expanded="false" aria-controls="faq-pricing-1">
                             How much does a local move in Nairobi cost?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-pricing-1">
+                        <div class="faq-answer" id="faq-pricing-1" role="region" aria-labelledby="faq-pricing-1-btn">
                             <p>The cost depends on the volume of items, distance, and access at both locations. As a guide:</p>
                             <ul>
                                 <li>Bedsitter/Studio: From KSh 8,000</li>
@@ -120,11 +139,11 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-pricing-2">
+                        <button class="faq-question" id="faq-pricing-2-btn" aria-expanded="false" aria-controls="faq-pricing-2">
                             Is the quote really fixed?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-pricing-2">
+                        <div class="faq-answer" id="faq-pricing-2" role="region" aria-labelledby="faq-pricing-2-btn">
                             <p>Yes. The quote we give you is binding. If we underestimated the time or volume, that is our problem—not yours. The only exception is if you add significant items after the quote was given.</p>
                         </div>
                     </div>
@@ -133,20 +152,20 @@
                 <div class="faq-section" id="booking">
                     <h2>📅 Booking &amp; Scheduling</h2>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-booking-1">
+                        <button class="faq-question" id="faq-booking-1-btn" aria-expanded="false" aria-controls="faq-booking-1">
                             How far in advance should I book?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-booking-1">
+                        <div class="faq-answer" id="faq-booking-1" role="region" aria-labelledby="faq-booking-1-btn">
                             <p>We recommend booking at least 3-5 days in advance for weekend moves. However, we keep buffer slots for emergency moves. Call 0702 555 093 to check same-day availability.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-booking-2">
+                        <button class="faq-question" id="faq-booking-2-btn" aria-expanded="false" aria-controls="faq-booking-2">
                             Can I cancel or reschedule?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-booking-2">
+                        <div class="faq-answer" id="faq-booking-2" role="region" aria-labelledby="faq-booking-2-btn">
                             <p>Yes. Reschedule at no charge with 48 hours notice. Full deposit refund if you cancel 72+ hours before your move.</p>
                         </div>
                     </div>
@@ -155,20 +174,20 @@
                 <div class="faq-section" id="packing">
                     <h2>📦 Packing &amp; Materials</h2>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-packing-1">
+                        <button class="faq-question" id="faq-packing-1-btn" aria-expanded="false" aria-controls="faq-packing-1">
                             Do I need to pack my own belongings?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-packing-1">
+                        <div class="faq-answer" id="faq-packing-1" role="region" aria-labelledby="faq-packing-1-btn">
                             <p>No. That is what we are here for. Our crew packs and wraps everything. We recommend keeping personal valuables (documents, jewelry, medications) with you.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-packing-2">
+                        <button class="faq-question" id="faq-packing-2-btn" aria-expanded="false" aria-controls="faq-packing-2">
                             How do you protect fragile items?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-packing-2">
+                        <div class="faq-answer" id="faq-packing-2" role="region" aria-labelledby="faq-packing-2-btn">
                             <p>We use multi-layer protection: bubble wrap, moving blankets, corner protectors, and strategic loading. Fragile items go on top, secured with straps.</p>
                         </div>
                     </div>
@@ -177,20 +196,20 @@
                 <div class="faq-section" id="moving-day">
                     <h2>🚚 The Moving Day</h2>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-day-1">
+                        <button class="faq-question" id="faq-day-1-btn" aria-expanded="false" aria-controls="faq-day-1">
                             What time will the movers arrive?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-day-1">
+                        <div class="faq-answer" id="faq-day-1" role="region" aria-labelledby="faq-day-1-btn">
                             <p>We give you a time window when you book (e.g., 8:00-9:00 AM). We aim to arrive at the start of that window. If we are running late, we call before the window ends.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-day-2">
+                        <button class="faq-question" id="faq-day-2-btn" aria-expanded="false" aria-controls="faq-day-2">
                             How long does a typical move take?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-day-2">
+                        <div class="faq-answer" id="faq-day-2" role="region" aria-labelledby="faq-day-2-btn">
                             <ul>
                                 <li>Studio/1-bedroom: 2-4 hours</li>
                                 <li>2-bedroom: 4-6 hours</li>
@@ -204,20 +223,20 @@
                 <div class="faq-section" id="insurance">
                     <h2>🛡️ Insurance &amp; Safety</h2>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-ins-1">
+                        <button class="faq-question" id="faq-ins-1-btn" aria-expanded="false" aria-controls="faq-ins-1">
                             What happens if something breaks?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-ins-1">
+                        <div class="faq-answer" id="faq-ins-1" role="region" aria-labelledby="faq-ins-1-btn">
                             <p>Flag it immediately upon delivery. We assess the damage, and if it was due to our negligence, we repair or compensate you. We do not disappear after the job.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-ins-2">
+                        <button class="faq-question" id="faq-ins-2-btn" aria-expanded="false" aria-controls="faq-ins-2">
                             Are my belongings insured?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-ins-2">
+                        <div class="faq-answer" id="faq-ins-2" role="region" aria-labelledby="faq-ins-2-btn">
                             <p>Yes. We offer Goods in Transit insurance options. We also carry liability coverage for our own operations.</p>
                         </div>
                     </div>
@@ -226,20 +245,20 @@
                 <div class="faq-section" id="payments">
                     <h2>💳 Payments &amp; Policies</h2>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-pay-1">
+                        <button class="faq-question" id="faq-pay-1-btn" aria-expanded="false" aria-controls="faq-pay-1">
                             What payment methods do you accept?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-pay-1">
+                        <div class="faq-answer" id="faq-pay-1" role="region" aria-labelledby="faq-pay-1-btn">
                             <p>We accept M-Pesa, bank transfers, and cash. A deposit is required to lock in your date, with the balance payable upon delivery.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-pay-2">
+                        <button class="faq-question" id="faq-pay-2-btn" aria-expanded="false" aria-controls="faq-pay-2">
                             Do you offer discounts?
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer" id="faq-pay-2">
+                        <div class="faq-answer" id="faq-pay-2" role="region" aria-labelledby="faq-pay-2-btn">
                             <p>We offer repeat client discounts and referral bonuses. Ask about current offers on WhatsApp.</p>
                         </div>
                     </div>
@@ -254,7 +273,7 @@
                 <div class="contact-options">
                     <a href="https://wa.me/254702555093?text=Hello%20Heirloom%20Logistics%2C%20I%20have%20a%20question." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
                     <a href="tel:+254702555093" class="btn btn-outline-dark">Call 0702 555 093</a>
-                    <a href="mailto:harrisoncheruiyot04@gmail.com" class="btn btn-outline-dark">Email Us</a>
+                    <a href="mailto:hello@heirloomlogistics.co.ke" class="btn btn-outline-dark">Email Us</a>
                 </div>
             </div>
         </section>
@@ -277,6 +296,15 @@
                 </ul>
             </div>
             <div class="footer-col">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li><a href="service-areas.html#nairobi">Nairobi</a></li>
+                    <li><a href="service-areas.html#mombasa">Mombasa</a></li>
+                    <li><a href="service-areas.html#kisumu">Kisumu</a></li>
+                    <li><a href="service-areas.html#nakuru">Nakuru</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="heirloom-standard.html">The Heirloom Standard</a></li>
@@ -289,7 +317,7 @@
                 <h4>Contact</h4>
                 <ul>
                     <li><a href="tel:+254702555093">0702 555 093</a></li>
-                    <li><a href="mailto:harrisoncheruiyot04@gmail.com">harrisoncheruiyot04@gmail.com</a></li>
+                    <li><a href="mailto:hello@heirloomlogistics.co.ke">hello@heirloomlogistics.co.ke</a></li>
                     <li>P.O. Box 1234, Nairobi</li>
                 </ul>
             </div>
