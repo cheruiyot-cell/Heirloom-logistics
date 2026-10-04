@@ -1,6 +1,6 @@
 /* ============================================
    Heirloom Logistics - Production Stylesheet
-   Version 3.2 - Hero text visibility fixes
+   Version 3.3 - African logistics imagery
    ============================================ */
 
 :root {
@@ -56,22 +56,26 @@
     --hero-text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75),
                         0 1px 3px rgba(0, 0, 0, 0.6);
 
-    /* Unsplash Image URLs – African logistics, moving & delivery scenes */
-    --img-hero-home:     url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-services: url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-about:    url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-standard: url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-faq:      url('https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-contact:  url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1920&q=80');
-    --img-hero-areas:    url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1920&q=80');
-    --img-founder:       url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80');
-    --img-story:         url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&q=80');
-    --img-team-1:        url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=400&q=80');
-    --img-team-2:        url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=80');
-    --img-team-3:        url('https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=400&q=80');
-    --img-service-local: url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1200&q=80');
-    --img-service-long:  url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1200&q=80');
-    --img-service-parcel:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80');
+    /* ============================================================
+       Unsplash Image URLs — African Logistics & Moving Imagery
+       Curated to feature Black logistics professionals, warehousing,
+       delivery, trucking and moving scenes.
+       ============================================================ */
+    --img-hero-home:      url('https://images.unsplash.com/photo-1afZJiNWxk8?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-services:  url('https://images.unsplash.com/photo-zFKe-7-Z2sw?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-about:     url('https://images.unsplash.com/photo-w_gDAzw6zyQ?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-standard:  url('https://images.unsplash.com/photo-n5WinrNwwhU?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-faq:       url('https://images.unsplash.com/photo-QEl8wKk-ScM?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-contact:   url('https://images.unsplash.com/photo-UMU6coZWRfU?auto=format&fit=crop&w=1920&q=80');
+    --img-hero-areas:     url('https://images.unsplash.com/photo-Gggtksergek?auto=format&fit=crop&w=1920&q=80');
+    --img-founder:        url('https://images.unsplash.com/photo-zFKe-7-Z2sw?auto=format&fit=crop&w=800&q=80');
+    --img-story:          url('https://images.unsplash.com/photo-w8tCJfegXGo?auto=format&fit=crop&w=1200&q=80');
+    --img-team-1:         url('https://images.unsplash.com/photo-UMU6coZWRfU?auto=format&fit=crop&w=400&q=80');
+    --img-team-2:         url('https://images.unsplash.com/photo-QEl8wKk-ScM?auto=format&fit=crop&w=400&q=80');
+    --img-team-3:         url('https://images.unsplash.com/photo-n5WinrNwwhU?auto=format&fit=crop&w=400&q=80');
+    --img-service-local:  url('https://images.unsplash.com/photo-Gggtksergek?auto=format&fit=crop&w=1200&q=80');
+    --img-service-long:   url('https://images.unsplash.com/photo-zFKe-7-Z2sw?auto=format&fit=crop&w=1200&q=80');
+    --img-service-parcel: url('https://images.unsplash.com/photo-QEl8wKk-ScM?auto=format&fit=crop&w=1200&q=80');
 }
 
 /* ============================================
