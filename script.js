@@ -1,25 +1,13 @@
 /* ============================================
    Heirloom Logistics - Complete JavaScript
-   Premium Moving Company Website
-   Version 3.0 - Production-ready
-   Audit fixes: dead code removed, console gated,
-   accordion CSS-driven, form a11y, E.164
+   Version 3.1 - Production-ready
    ============================================ */
 
 'use strict';
 
-/* ============================================
-   Debug flag (console output only in local dev)
-   ============================================ */
 const DEBUG = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+function log(...args) { if (DEBUG) console.log(...args); }
 
-function log(...args) {
-    if (DEBUG) console.log(...args);
-}
-
-/* ============================================
-   DOM Element References
-   ============================================ */
 const DOM = {
     header: document.getElementById('site-header'),
     hamburger: document.getElementById('hamburger'),
@@ -34,55 +22,32 @@ const DOM = {
     scrollLinks: document.querySelectorAll('a[href^="#"]')
 };
 
-/* ============================================
-   Utility Functions
-   ============================================ */
+/* ---------- Utilities ---------- */
 function debounce(func, wait = 100) {
     let timeout;
     return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
+        const later = () => { clearTimeout(timeout); func(...args); };
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
 }
-
-function getCurrentYear() {
-    return new Date().getFullYear();
-}
-
+function getCurrentYear() { return new Date().getFullYear(); }
 function saveToLocalStorage(key, value) {
-    try {
-        localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-        log('localStorage not available:', error);
-    }
+    try { localStorage.setItem(key, JSON.stringify(value)); }
+    catch (e) { log('localStorage not available:', e); }
 }
-
 function getFromLocalStorage(key) {
     try {
-        const value = localStorage.getItem(key);
-        return value ? JSON.parse(value) : null;
-    } catch (error) {
-        log('localStorage not available:', error);
-        return null;
-    }
+        const v = localStorage.getItem(key);
+        return v ? JSON.parse(v) : null;
+    } catch (e) { log('localStorage not available:', e); return null; }
 }
 
-/* ============================================
-   Header & Navigation
-   ============================================ */
+/* ---------- Header & Navigation ---------- */
 function handleHeaderScroll() {
     if (!DOM.header) return;
-    if (window.scrollY > 50) {
-        DOM.header.classList.add('scrolled');
-    } else {
-        DOM.header.classList.remove('scrolled');
-    }
+    DOM.header.classList.toggle('scrolled', window.scrollY > 50);
 }
-
 function toggleMobileMenu() {
     if (!DOM.hamburger || !DOM.mainNav) return;
     const isOpen = DOM.hamburger.classList.toggle('active');
@@ -90,7 +55,6 @@ function toggleMobileMenu() {
     DOM.hamburger.setAttribute('aria-expanded', String(isOpen));
     DOM.body.style.overflow = isOpen ? 'hidden' : '';
 }
-
 function closeMobileMenu() {
     if (!DOM.mainNav || !DOM.hamburger) return;
     DOM.mainNav.classList.remove('active');
@@ -98,118 +62,84 @@ function closeMobileMenu() {
     DOM.hamburger.setAttribute('aria-expanded', 'false');
     DOM.body.style.overflow = '';
 }
-
 function closeMobileMenuOnOutsideClick(event) {
-    if (
-        DOM.mainNav &&
-        DOM.mainNav.classList.contains('active') &&
+    if (DOM.mainNav && DOM.mainNav.classList.contains('active') &&
         !DOM.mainNav.contains(event.target) &&
-        !DOM.hamburger.contains(event.target)
-    ) {
+        !DOM.hamburger.contains(event.target)) {
         closeMobileMenu();
     }
 }
-
 function closeMobileMenuOnEscape(event) {
     if (event.key === 'Escape' && DOM.mainNav && DOM.mainNav.classList.contains('active')) {
         closeMobileMenu();
     }
 }
 
-/* ============================================
-   Smooth Scroll
-   ============================================ */
+/* ---------- Smooth Scroll (skip-link safe) ---------- */
 function smoothScrollToTarget(event) {
-    const targetId = event.currentTarget.getAttribute('href');
+    const anchor = event.currentTarget;
+    const targetId = anchor.getAttribute('href');
     if (!targetId || targetId === '#' || !targetId.startsWith('#')) return;
+    if (anchor.classList.contains('skip-link')) return;
     const targetElement = document.querySelector(targetId);
     if (!targetElement) return;
-
     event.preventDefault();
     const headerHeight = DOM.header ? DOM.header.offsetHeight : 0;
     const top = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
     window.scrollTo({ top, behavior: 'smooth' });
-
     if (DOM.mainNav && DOM.mainNav.classList.contains('active')) closeMobileMenu();
-    history.pushState(null, null, targetId);
+    history.pushState(null, '', targetId);
 }
 
-/* ============================================
-   Form Validation
-   ============================================ */
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
+/* ---------- Form Validation ---------- */
+function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
 function isValidPhone(phone) {
     return /^(\+?254|0)?[71]\d{8}$/.test(phone.replace(/[\s-]/g, ''));
 }
-
 function showFieldError(field, message) {
     field.classList.add('error');
     field.setAttribute('aria-invalid', 'true');
-    const errorElement = field.parentElement.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
-    }
+    const el = field.parentElement.querySelector('.error-message');
+    if (el) { el.textContent = message; el.style.display = 'block'; }
 }
-
 function clearFieldError(field) {
     field.classList.remove('error');
     field.removeAttribute('aria-invalid');
-    const errorElement = field.parentElement.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.textContent = '';
-        errorElement.style.display = 'none';
-    }
+    const el = field.parentElement.querySelector('.error-message');
+    if (el) { el.textContent = ''; el.style.display = 'none'; }
 }
-
 function validateField(field) {
     const value = field.value.trim();
     clearFieldError(field);
-
     if (field.hasAttribute('required') && !value) {
-        showFieldError(field, 'This field is required');
-        return false;
+        showFieldError(field, 'This field is required'); return false;
     }
     if (field.type === 'email' && value && !isValidEmail(value)) {
-        showFieldError(field, 'Please enter a valid email address');
-        return false;
+        showFieldError(field, 'Please enter a valid email address'); return false;
     }
     if (field.type === 'tel' && value && !isValidPhone(value)) {
-        showFieldError(field, 'Please enter a valid phone number (e.g., 07XX XXX XXX)');
-        return false;
+        showFieldError(field, 'Please enter a valid phone number (e.g., 07XX XXX XXX)'); return false;
     }
     if (field.name === 'name' && value && value.length < 2) {
-        showFieldError(field, 'Name must be at least 2 characters');
-        return false;
+        showFieldError(field, 'Name must be at least 2 characters'); return false;
     }
     return true;
 }
-
 function validateForm(form) {
-    const fields = form.querySelectorAll('[required]');
     let isValid = true;
-    fields.forEach(field => {
-        if (!validateField(field)) isValid = false;
+    form.querySelectorAll('[required]').forEach(f => {
+        if (!validateField(f)) isValid = false;
     });
     return isValid;
 }
-
 function showFormError(form, message) {
     const existing = form.querySelector('.form-error');
     if (existing) existing.remove();
-
     const errorDiv = document.createElement('div');
     errorDiv.classList.add('form-error');
     errorDiv.setAttribute('role', 'alert');
     errorDiv.textContent = message;
-
-    if (DOM.formStatus) {
-        DOM.formStatus.textContent = message;
-    }
-
+    if (DOM.formStatus) DOM.formStatus.textContent = message;
     const submitButton = form.querySelector('button[type="submit"]');
     form.insertBefore(errorDiv, submitButton);
 }
@@ -217,19 +147,16 @@ function showFormError(form, message) {
 async function handleFormSubmission(event) {
     event.preventDefault();
     const form = event.currentTarget;
-
     if (!validateForm(form)) {
         const firstError = form.querySelector('.error');
         if (firstError) firstError.focus();
         return;
     }
-
     const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.innerHTML;
     submitButton.disabled = true;
     submitButton.innerHTML = '<span class="spinner"></span> Sending...';
     submitButton.classList.add('loading');
-
     try {
         const formData = new FormData(form);
         const response = await fetch(form.action, {
@@ -237,7 +164,6 @@ async function handleFormSubmission(event) {
             body: formData,
             headers: { 'Accept': 'application/json' }
         });
-
         if (response.ok) {
             trackEvent('form_submission', { form_name: form.id || 'unknown' });
             window.location.href = 'thank-you.html';
@@ -256,33 +182,21 @@ async function handleFormSubmission(event) {
         }, 5000);
     }
 }
-
-function handleFieldBlur(event) {
-    validateField(event.currentTarget);
-}
-
+function handleFieldBlur(event) { validateField(event.currentTarget); }
 function handleFieldInput(event) {
-    if (event.currentTarget.classList.contains('error')) {
-        clearFieldError(event.currentTarget);
-    }
+    if (event.currentTarget.classList.contains('error')) clearFieldError(event.currentTarget);
 }
 
-/* ============================================
-   FAQ Accordion (CSS-driven state)
-   ============================================ */
+/* ---------- FAQ Accordion ---------- */
 function initFAQAccordion() {
     const items = document.querySelectorAll('.faq-item');
     if (!items.length) return;
-
     items.forEach(item => {
         const btn = item.querySelector('.faq-question');
         const icon = item.querySelector('.faq-icon');
         if (!btn) return;
-
         btn.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
-
-            // Close all others
             items.forEach(other => {
                 other.classList.remove('is-open');
                 const oBtn = other.querySelector('.faq-question');
@@ -290,8 +204,6 @@ function initFAQAccordion() {
                 if (oBtn) oBtn.setAttribute('aria-expanded', 'false');
                 if (oIcon) oIcon.textContent = '+';
             });
-
-            // Toggle this one open
             if (!isOpen) {
                 item.classList.add('is-open');
                 btn.setAttribute('aria-expanded', 'true');
@@ -301,9 +213,7 @@ function initFAQAccordion() {
     });
 }
 
-/* ============================================
-   Sticky Mobile CTA
-   ============================================ */
+/* ---------- Sticky CTA ---------- */
 function handleStickyCTA() {
     if (!DOM.stickyCTA || !DOM.footer) return;
     const footerTop = DOM.footer.getBoundingClientRect().top;
@@ -311,68 +221,45 @@ function handleStickyCTA() {
     DOM.stickyCTA.style.display = footerTop < windowHeight ? 'none' : 'flex';
 }
 
-/* ============================================
-   Dynamic Content
-   ============================================ */
+/* ---------- Dynamic Content ---------- */
 function updateCurrentYear() {
-    if (DOM.currentYear) {
-        DOM.currentYear.textContent = getCurrentYear();
-    }
+    if (DOM.currentYear) DOM.currentYear.textContent = getCurrentYear();
 }
 
-/* ============================================
-   Analytics
-   ============================================ */
+/* ---------- Analytics ---------- */
 function trackEvent(eventName, eventData = {}) {
     const event = {
-        name: eventName,
-        data: eventData,
+        name: eventName, data: eventData,
         timestamp: new Date().toISOString(),
         url: window.location.href
     };
-
     log('[TRACKING]', event);
-
     if (typeof gtag === 'function') {
         gtag('event', eventName, { ...eventData, page_path: window.location.pathname });
     }
-    if (typeof fbq === 'function') {
-        fbq('trackCustom', eventName, eventData);
-    }
-
+    if (typeof fbq === 'function') fbq('trackCustom', eventName, eventData);
     const events = getFromLocalStorage('trackedEvents') || [];
     events.push(event);
     if (events.length > 50) events.shift();
     saveToLocalStorage('trackedEvents', events);
 }
 
-/* ============================================
-   Guide Tracking
-   ============================================ */
+/* ---------- Guide Tracking ---------- */
 function trackGuideDownload() {
     document.querySelectorAll('a[href*="packing-guide"]').forEach(link => {
         link.addEventListener('click', () => {
-            trackEvent('guide_download', {
-                source: 'link_click',
-                href: link.getAttribute('href')
-            });
+            trackEvent('guide_download', { source: 'link_click', href: link.getAttribute('href') });
         });
     });
-
     document.querySelectorAll('button[onclick*="window.print"]').forEach(button => {
-        button.addEventListener('click', () => {
-            trackEvent('guide_print', { source: 'print_button' });
-        });
+        button.addEventListener('click', () => trackEvent('guide_print', { source: 'print_button' }));
     });
-
     if (window.location.pathname.includes('packing-guide')) {
         trackEvent('guide_page_view', { referrer: document.referrer || 'direct' });
     }
 }
-
 function initChecklistTracking() {
     if (!DOM.checklistItems.length) return;
-
     DOM.checklistItems.forEach(checkbox => {
         checkbox.addEventListener('change', (event) => {
             const saved = getFromLocalStorage('checklistItems') || {};
@@ -380,16 +267,13 @@ function initChecklistTracking() {
             saveToLocalStorage('checklistItems', saved);
         });
     });
-
     const saved = getFromLocalStorage('checklistItems') || {};
     DOM.checklistItems.forEach(checkbox => {
         if (saved[checkbox.id]) checkbox.checked = true;
     });
 }
 
-/* ============================================
-   Link Tracking
-   ============================================ */
+/* ---------- Link Tracking ---------- */
 function initWhatsAppLinks() {
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
         link.addEventListener('click', () => {
@@ -397,7 +281,6 @@ function initWhatsAppLinks() {
         });
     });
 }
-
 function initPhoneLinks() {
     document.querySelectorAll('a[href^="tel:"]').forEach(link => {
         link.addEventListener('click', () => {
@@ -406,57 +289,26 @@ function initPhoneLinks() {
     });
 }
 
-/* ============================================
-   Keyboard Navigation
-   ============================================ */
+/* ---------- Keyboard Navigation (native only) ---------- */
 function initKeyboardNavigation() {
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.setAttribute('role', 'button');
-        question.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                question.click();
-            }
-        });
-    });
-
-    document.querySelectorAll('.selection-card').forEach(card => {
-        card.setAttribute('role', 'link');
-        card.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                window.location.href = card.getAttribute('href') || '#';
-            }
-        });
-    });
+    // Native <button> and <a> handle keyboard interaction correctly.
+    // No extra ARIA or keydown handlers needed.
 }
 
-/* ============================================
-   Debounced Handlers
-   ============================================ */
+/* ---------- Debounced Handlers ---------- */
 const debouncedHeaderScroll = debounce(handleHeaderScroll, 10);
 const debouncedStickyCTA = debounce(handleStickyCTA, 100);
 
-/* ============================================
-   Event Listener Init
-   ============================================ */
+/* ---------- Event Listeners ---------- */
 function initEventListeners() {
     window.addEventListener('scroll', () => {
         debouncedHeaderScroll();
         debouncedStickyCTA();
     }, { passive: true });
-
-    if (DOM.hamburger) {
-        DOM.hamburger.addEventListener('click', toggleMobileMenu);
-    }
-
+    if (DOM.hamburger) DOM.hamburger.addEventListener('click', toggleMobileMenu);
     document.addEventListener('click', closeMobileMenuOnOutsideClick);
     document.addEventListener('keydown', closeMobileMenuOnEscape);
-
-    DOM.scrollLinks.forEach(anchor => {
-        anchor.addEventListener('click', smoothScrollToTarget);
-    });
-
+    DOM.scrollLinks.forEach(anchor => anchor.addEventListener('click', smoothScrollToTarget));
     if (DOM.quoteForm) {
         DOM.quoteForm.addEventListener('submit', handleFormSubmission);
         DOM.quoteForm.querySelectorAll('input, textarea').forEach(field => {
@@ -464,14 +316,19 @@ function initEventListeners() {
             field.addEventListener('input', handleFieldInput);
         });
     }
-
+    const printBtn = document.getElementById('print-guide-btn');
+    if (printBtn) printBtn.addEventListener('click', () => window.print());
     window.addEventListener('resize', debounce(handleStickyCTA, 250));
 }
 
-/* ============================================
-   Bootstrap
-   ============================================ */
+/* ---------- Bootstrap ---------- */
+let originalSubmitHTML = null;
+
 document.addEventListener('DOMContentLoaded', () => {
+    if (DOM.quoteForm) {
+        const btn = DOM.quoteForm.querySelector('button[type="submit"]');
+        if (btn) originalSubmitHTML = btn.innerHTML;
+    }
     initEventListeners();
     initFAQAccordion();
     initWhatsAppLinks();
@@ -482,28 +339,22 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCurrentYear();
     handleHeaderScroll();
     handleStickyCTA();
-
     trackEvent('page_view', { title: document.title });
-
-    log('Heirloom Logistics v3.0 initialized');
-    log('Page:', document.title);
-    log('URL:', window.location.href);
+    log('Heirloom Logistics v3.1 initialized');
 });
 
-/* ============================================
-   Online / Offline
-   ============================================ */
+/* ---------- Online / Offline ---------- */
 window.addEventListener('online', () => {
     log('Internet restored');
     if (DOM.quoteForm) {
         const btn = DOM.quoteForm.querySelector('button[type="submit"]');
         if (btn && btn.disabled) {
             btn.disabled = false;
-            btn.textContent = 'Request My Free Quote';
+            btn.innerHTML = originalSubmitHTML || 'Request My Free Quote';
+            btn.classList.remove('loading');
         }
     }
 });
-
 window.addEventListener('offline', () => {
     log('Internet lost');
     if (DOM.quoteForm) {
@@ -515,9 +366,7 @@ window.addEventListener('offline', () => {
     }
 });
 
-/* ============================================
-   Page Visibility
-   ============================================ */
+/* ---------- Page Visibility ---------- */
 document.addEventListener('visibilitychange', () => {
     if (!document.hidden) {
         handleHeaderScroll();
@@ -525,22 +374,13 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-/* ============================================
-   Public API (for debugging)
-   ============================================ */
-window.HeirloomLogistics = {
-    version: '3.0.0',
-    trackEvent,
-    validateForm,
-    isValidEmail,
-    isValidPhone
-};
-
-/* ============================================
-   Console Banner (dev only)
-   ============================================ */
+/* ---------- Public API (dev only) ---------- */
 if (DEBUG) {
-    console.log('%c Heirloom Logistics %c v3.0.0 ',
+    window.HeirloomLogistics = {
+        version: '3.1.0',
+        trackEvent, validateForm, isValidEmail, isValidPhone
+    };
+    console.log('%c Heirloom Logistics %c v3.1.0 ',
         'background: #1A1A1A; color: #B08D57; font-size: 16px; padding: 4px;',
         'background: #B08D57; color: #1A1A1A; font-size: 12px; padding: 4px;'
     );

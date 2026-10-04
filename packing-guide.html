@@ -7,12 +7,16 @@
     <meta name="description" content="Download our free First Night Survival Guide - a simple checklist that ensures you have everything you need for your first night in your new home.">
     <link rel="canonical" href="https://heirloomlogistics.co.ke/packing-guide.html">
 
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A1A1A">
+
     <meta property="og:title" content="Free Packing Guide | Heirloom Logistics">
     <meta property="og:description" content="The First Night Survival Guide — your essential checklist for a stress-free move in Kenya.">
     <meta property="og:url" content="https://heirloomlogistics.co.ke/packing-guide.html">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="https://heirloomlogistics.co.ke/assets/og-guide.jpg">
-
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=1200&h=630&q=80">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +68,7 @@
                 <h1>The First Night Survival Guide</h1>
                 <p class="guide-subheadline">Your Essential Checklist for a Stress-Free Move in Kenya</p>
                 <div class="guide-actions">
-                    <button class="btn btn-primary" onclick="window.print()" type="button">🖨️ Print / Save as PDF</button>
+                    <button class="btn btn-primary" id="print-guide-btn" type="button">🖨️ Print / Save as PDF</button>
                     <a href="https://wa.me/254702555093?text=Hello%20Heirloom%20Logistics%2C%20I%20downloaded%20the%20packing%20guide%20and%20have%20a%20question." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Ask a Question on WhatsApp</a>
                 </div>
             </div>
@@ -81,7 +85,6 @@
                 <div class="guide-section">
                     <h2>The "First Night Box" Checklist</h2>
                     <p class="guide-note">Keep this box with you in your car or at the front of the truck so you can access it immediately.</p>
-
                     <div class="checklist">
                         <div class="checklist-category">
                             <h3>🛏️ Bedtime Essentials</h3>
@@ -93,7 +96,6 @@
                             </ul>
                             <p class="checklist-tip"><strong>Why:</strong> After a long day of moving, you want to collapse into a made bed.</p>
                         </div>
-
                         <div class="checklist-category">
                             <h3>🚿 Toiletries</h3>
                             <ul>
@@ -106,7 +108,6 @@
                             </ul>
                             <p class="checklist-tip"><strong>Why:</strong> A hot shower after moving day feels like heaven.</p>
                         </div>
-
                         <div class="checklist-category">
                             <h3>👕 Clothing for the Next Day</h3>
                             <ul>
@@ -116,7 +117,6 @@
                             </ul>
                             <p class="checklist-tip"><strong>Why:</strong> You may not have time to unpack your wardrobe immediately.</p>
                         </div>
-
                         <div class="checklist-category">
                             <h3>🍽️ Kitchen &amp; Food</h3>
                             <ul>
@@ -130,7 +130,6 @@
                             </ul>
                             <p class="checklist-tip"><strong>Why:</strong> You will be hungry and thirsty. Easy access makes it feel less like camping.</p>
                         </div>
-
                         <div class="checklist-category">
                             <h3>📱 Electronics &amp; Chargers</h3>
                             <ul>
@@ -141,7 +140,6 @@
                             </ul>
                             <p class="checklist-tip"><strong>Why:</strong> Your phone is your lifeline on moving day.</p>
                         </div>
-
                         <div class="checklist-category">
                             <h3>📋 Important Documents &amp; Valuables</h3>
                             <ul>
@@ -153,7 +151,6 @@
                             </ul>
                             <p class="checklist-tip"><strong>Why:</strong> These should never go in the moving truck.</p>
                         </div>
-
                         <div class="checklist-category">
                             <h3>🧹 Cleaning Supplies</h3>
                             <ul>
